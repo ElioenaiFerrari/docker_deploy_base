@@ -27,8 +27,6 @@ services:
     #   - ./db:/data/db
     ports:
       - $DB_PORT:27017
-    environment:
-      MONGO_INITDB_DATABASE: $DB_NAME
     networks:
       - app_network
 
