@@ -38,6 +38,13 @@ services:
       options:
         max-size: '10m'
         max-file: '5'
+    environment:
+      - APP_NAME=$APP_NAME
+      - APP_PORT=$APP_PORT
+      - APP_SECRET=$APP_SECRET
+      - DB_HOST=$DB_HOST
+      - DB_PORT=$DB_PORT
+      - DB_NAME=$DB_NAME
     networks:
       - app_network
 
