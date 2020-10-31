@@ -2,8 +2,10 @@ version: '3'
 
 services:
   nginx:
-    build: ./nginx-conf
+    image: nginx
     container_name: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - 80:80
     depends_on:
