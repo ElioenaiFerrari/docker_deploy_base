@@ -9,7 +9,7 @@ services:
       - ./$APP_HOST.crt:/etc/ssl/$APP_HOST.crt
       - ./$APP_HOST.key:/etc/ssl/$APP_HOST.key
     ports:
-      # - 80:80
+      - 80:80
       - 443:443
     depends_on:
       - app

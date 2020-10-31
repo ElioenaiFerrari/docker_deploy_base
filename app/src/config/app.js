@@ -17,19 +17,6 @@ App.use(express.urlencoded({ extended: false }));
 App.use(morgan('dev'));
 App.use(['/app'], Guardian.safe);
 
-App.get('/', (req, res) => {
-  res.status(200).json({
-    hello: 'world',
-    port: process.env.APP_PORT,
-  });
-});
-
 mainRouter(App);
-
-App.get('/', (req, res) => {
-  return res.json({
-    hello: 'world',
-  });
-});
 
 export default App;

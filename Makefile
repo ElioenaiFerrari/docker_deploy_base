@@ -60,3 +60,5 @@ nginx_bash:
 db_bash: 
 	docker exec -it ${APP_NAME}-db bash	
 
+
+
