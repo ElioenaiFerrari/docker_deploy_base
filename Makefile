@@ -30,7 +30,28 @@ prune:
 deploy:
 	make down && make build && make up		
 
-.PHONY: push
+.PHONY: ls
 
-push:
-	 python3 git.py
+ls:
+	docker container ls
+
+.PHONY: stats
+
+stats:
+	docker container stats
+
+.PHONY: app_bash
+
+app_bash: 
+	docker exec -it ${APP_NAME}-app bash
+
+.PHONY: nginx_bash
+
+nginx_bash: 
+	docker exec -it ${APP_NAME}-nginx bash	
+
+.PHONY: db_bash
+
+db_bash: 
+	docker exec -it ${APP_NAME}-db bash	
+
