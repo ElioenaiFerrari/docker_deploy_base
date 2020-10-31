@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  nginx:
+    build: ./nginx-conf
+    container_name: nginx
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    networks:
+      - app_network
+
+  db:
+    image: mongo
+    container_name: db
+    restart: always
+    # volumes:
+    #   - ./configdb:/data/configdb
+    #   - ./db:/data/db
+    ports:
+      - $DB_PORT:27017
+    environment:
+      MONGO_INITDB_DATABASE: $DB_NAME
+    networks:
+      - app_network
+
+  app:
+    build: ./app
+    container_name: app
+    restart: always
+    depends_on:
+      - db
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '5'
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
