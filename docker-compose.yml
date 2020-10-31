@@ -13,6 +13,9 @@ services:
       - 443:443
     depends_on:
       - app
+    environment:
+      - APP_HOST=$APP_HOST
+      - APP_PORT=$APP_PORT
     networks:
       - app_network
   db:
