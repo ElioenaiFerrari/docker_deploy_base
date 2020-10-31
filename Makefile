@@ -30,3 +30,7 @@ prune:
 deploy:
 	make down && make build && make up		
 
+.PHONY: push
+
+push:
+	 python3 git.py
