@@ -43,7 +43,7 @@ stats:
 .PHONY: ssl
 
 ssl: 
-	openssl req -x509 -sha256 -newkey rsa:2048 -keyout ${APP_HOST}.key -out ${APP_HOST}.crt -days 1024 -nodes -subj '/CN=${APP_HOST}.tld'
+	openssl req -x509 -sha256 -newkey rsa:2048 -keyout ${APP_HOST}.key -out ${APP_HOST}.crt -days 1024 -nodes -subj '/CN=${APP_HOST}'
 
 .PHONY: app_bash
 
