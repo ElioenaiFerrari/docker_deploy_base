@@ -1,0 +1,29 @@
+{
+  "name": "DevOps",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.11",
+    "morgan": "^1.10.0",
+    "require-dir": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/plugin-transform-spread": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-plugin-module-alias": "^1.6.0",
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "start": "babel-node src/main.js",
+    "dev": "nodemon -w . -w ../.env --exec babel-node src/main"
+  }
+}
