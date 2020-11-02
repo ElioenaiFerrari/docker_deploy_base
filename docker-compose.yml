@@ -23,11 +23,11 @@ services:
     command: mongod
     container_name: $APP_NAME-db
     restart: always
-    # volumes:
-    #   - ./configdb:/data/configdb
-    #   - ./db:/data/db
-    ports:
-      - $DB_PORT:27017
+    volumes:
+      - ./configdb:/data/configdb
+      - ./db:/data/db
+    # ports:
+    #   - $DB_PORT:27017
     networks:
       - app_network
     volumes:
@@ -43,6 +43,8 @@ services:
     container_name: $APP_NAME-app
     restart: always
     depends_on:
+      - db
+    links:
       - db
     logging:
       driver: 'json-file'
