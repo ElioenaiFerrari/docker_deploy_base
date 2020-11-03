@@ -40,7 +40,7 @@ dev:
 .PHONY: deploy
 	
 deploy:		
-	kubectl convert -f deployment.yml && kubectl create -f deployment.yml --save-config
+	kubectl create -f deployment.yml --save-config
 
 # show active containers
 .PHONY: ls
