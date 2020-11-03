@@ -23,8 +23,6 @@ services:
     command: mongod
     container_name: $APP_NAME-db
     restart: always
-    ports: 
-      - $DB_PORT:27017
     volumes:
       - ./configdb:/data/configdb
       - ./db:/data/db
@@ -37,7 +35,6 @@ services:
       - MONGO_INITDB_DATABASE=$DB_NAME
       - MONGO_INITDB_ROOT_USERNAME=$DB_USER
       - MONGO_INITDB_ROOT_PASSWORD=$DB_PASS
-      - DB_PORT=$DB_PORT
 
   app:
     build: ./app
