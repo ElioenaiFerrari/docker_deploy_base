@@ -72,5 +72,11 @@ nginx_bash:
 db_bash: 
 	docker exec -it ${APP_NAME}-db bash	
 
+.PHONY: push_image
+
+push_image:
+	docker push ${APP_IMAGE_NAME}
+
+
 
 

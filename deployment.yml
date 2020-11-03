@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: $APP_NAME
+spec:
+  replicas: $PODS
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: $APP_NAME
+    spec: # pod spec
+      containers:
+        - name: $APP_NAME
+          image: $APP_IMAGE_NAME
+          ports:
+            - containerPort: $APP_PORT
