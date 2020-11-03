@@ -23,7 +23,8 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "start": "babel-node src/main.js",
-    "dev": "nodemon -w . -w ../.env --exec babel-node src/main"
+    "start": "node build/main.js",
+    "dev": "nodemon -w . -w ../.env --exec babel-node src/main",
+    "build": "babel src -d build"
   }
 }
