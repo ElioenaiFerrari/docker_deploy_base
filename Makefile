@@ -31,16 +31,10 @@ prune:
 	docker container prune
 
 # down, make ssl (or not), build and up container
-.PHONY: dev
-
-dev:
-	make down && ./ssl.sh && make build && make up	
-
-#deploy in kubernetes
 .PHONY: deploy
-	
-deploy:		
-	kubectl create -f deployment.yml --save-config
+
+deploy:
+	make down && ./ssl.sh && make build && make up		
 
 # show active containers
 .PHONY: ls
